@@ -17,8 +17,8 @@ def extract_job(html) :
     company, location = html.find("h3", {"class":"fc-black-700"}).find_all("span", recursive=False)
     company = company.get_text(strip=True)
     location = location.get_text(strip=True)
-    print(company, location)
-    return {'title' : title, 'company' : company, 'location' : location }
+    job_id = html["data-jobid"]
+    return {'title' : title, 'company' : company, 'location' : location, 'apply_link': f"https://stackoverflow.com/jobs/{job_id}"}
 
 def extract_jobs(last_page) :
     jobs = []
@@ -34,4 +34,5 @@ def extract_jobs(last_page) :
 def get_jobs() :
     last_page = get_last_page()
     jobs = extract_jobs(last_page)
+
     return jobs
