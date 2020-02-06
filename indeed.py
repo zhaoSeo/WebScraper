@@ -48,7 +48,7 @@ def extract_jobs(last_page) :
         results = soup.find_all("div", {"class" : "jobsearch-SerpJobCard"})
         for result in results :
             job = extract_job(result)
-            print(job)
+            #print(job)
             jobs.append(job)
     return jobs
 

@@ -28,7 +28,7 @@ def extract_jobs(last_page) :
         results = soup.find_all("div", {"class":"-job"})
         for result in results :
             job = extract_job(result)
-            print(job)
+            #print(job)
             jobs.append(job)
     return jobs
 
